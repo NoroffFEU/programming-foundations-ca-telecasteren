@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Foundations CA | Tele Caster Nilsen</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,=" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Foundations CA</title>
-    <link href='css/style.css' rel='stylesheet' />
-    <link rel='icon' href='data:;base64,=' />
-</head>
+  <body>
+    <main>
+      <section>
+        <div class="topBar-background"></div>
 
-<body>
+        <div class="page-heading"></div>
 
+        <div class="input-container">
+          <input
+            type="text"
+            placeholder="search books.."
+            name="search"
+            id="search-field"
+            required
+          />
+          <input
+            type="submit"
+            name="submit"
+            id="submit-btn"
+            placeholder="submit"
+            onclick="searchEvent()"
+          />
+        </div>
+
+        <div class="list-container">
+          <div class="object-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/books.js"></script>
     <script src="js/script.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,4 +1,107 @@
+/* CSS styles for the objects list ++ */
+
+:root {
+  --light-green: #84b169;
+  --dark-blue: #1e5363;
+  --light-blue: #7bc8e0;
+  --white: #ffffff;
+}
+
 body {
-	font-family: sans-serif;
-	padding: 1em 3em;
+  background-color: var(--light-green);
+  font-family: sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.topBar-background {
+  position: absolute;
+  margin-top: 0;
+  top: 0;
+  width: 100vw;
+  height: 150px;
+  z-index: -50;
+  border-bottom-left-radius: 16px;
+  background-color: var(--dark-blue);
+}
+
+.page-heading {
+  margin-top: 6%;
+  font-size: larger;
+  color: var(--white);
+  text-align: center;
+}
+
+.input-container {
+  display: grid;
+}
+
+#search-field {
+  width: 200px;
+  height: 20px;
+  margin-top: 15%;
+  border-radius: 8px;
+  text-align: center;
+  justify-self: center;
+  border: 1px solid var(--white);
+  background-color: var(--white);
+}
+
+#submit-btn {
+  width: 80px;
+  height: 30px;
+  margin-top: 2%;
+  border-radius: 8px;
+  justify-self: center;
+  color: var(--white);
+  border: 1px solid var(--dark-blue);
+  background-color: var(--dark-blue);
+}
+
+.list-container {
+  display: grid;
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 389px) {
+  .list-container {
+    margin-left: 5%;
+  }
+}
+
+.object-list {
+  display: grid;
+  justify-self: center;
+}
+
+h1,
+h4,
+h5 {
+  font-weight: lighter;
+}
+
+h4 {
+  list-style: circle;
+  margin-top: 15%;
+  color: var(--white);
+  font-size: 22px;
+}
+
+h5 {
+  color: var(--dark-blue);
+  font-style: italic;
+  font-size: 16px;
+}
+
+p {
+  color: var(--dark-blue);
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+h5,
+p {
+  margin-left: 9%;
 }

@@ -30,3 +30,13 @@ function searchEvent() {
   searchInput();
   clearSearch();
 }
+
+// --------- Practice section:
+
+/*
+const createDiv = document.createElement("div");
+
+const createContent = document.createTextNode(
+  "This text is created dynamically with javascript"
+);
+*/

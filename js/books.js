@@ -3,25 +3,11 @@
 // My object list
 
 /*---------
-Contains:
-
-Object has:
-- String
-- Number
-- Boolean
-- Array
-- Function
-
-Optionals:
-- User interface
-- Nested objects
-- Array of objects
-
-Other:
-- for loops
-- returning values
-- filtering values
---> these are commented out on purpose,
+For the sake of these studies,
+I've added comments to explain what I've done
+-----------
+Extras:
+--> some of these are commented out on purpose,
 feel free to uncomment and see console log
 --------------------------------------------------*/
 
@@ -32,8 +18,14 @@ const books = [
     genre: "action",
     price: 25.0,
     inStock: true,
+    stockNum: 5,
     inCart: function () {
-      this.inStock = this.inStock;
+      if (this.stockNum > 0) {
+        this.stockNum -= 1;
+      } else {
+        this.stockNum === 0;
+        console.log("Not in stock:");
+      }
     },
   },
   {
@@ -42,8 +34,14 @@ const books = [
     genre: "romance/drama",
     price: 15.0,
     inStock: true,
+    stockNum: 10,
     inCart: function () {
-      this.inStock = this.inStock;
+      if (this.stockNum > 0) {
+        this.stockNum -= 1;
+      } else {
+        this.stockNum === 0;
+        console.log("Not in stock:");
+      }
     },
   },
   {
@@ -51,62 +49,18 @@ const books = [
     author: ["John Smith", "Abigail Remington", "Doug Rains"],
     genre: "biography",
     price: 30.0,
-    inStock: true,
+    inStock: false,
+    stockNum: 0,
     inCart: function () {
-      this.inStock = !this.inStock;
+      if (this.stockNum > 0) {
+        this.stockNum -= 1;
+      } else {
+        this.stockNum === 0;
+        console.log("Not in stock:");
+      }
     },
   },
 ];
-
-// Calling the function in the object list
-//books[0].inCart();
-//books[1].inCart();
-//books[2].inCart();
-
-// Checking the function in the object list
-//console.log("inCart is:", books[0].inStock + ", Book-title: " + books[0].title);
-//console.log("inCart is:", books[1].inStock + ", Book-title: " + books[1].title);
-//console.log("inCart is:", books[2].inStock + ", Book-title: " + books[2].title);
-
-// To simplify the code commented out above, I tried to make a loop instead
-// Calling the function for each book
-for (const book of books) {
-  book.inCart();
-}
-
-// Looping through books and checking each book
-for (const book of books) {
-  // console.log("inCart is: ", book.inStock + ", Book-title: " + book.title);
-}
-
-//--------------------- Looping, finding and filtering:
-
-// Looping through the array of books and creating a local variable
-for (let i = 0; i < books.length; i++) {
-  let book = books[i];
-  // console.log(book.title);
-}
-
-// When user searches for a specific book-title, we'll find it here
-let searchTitle = "Aboriginals";
-let myBook = books.find(function (book) {
-  return book.title === searchTitle;
-});
-// console.log(myBook);
-
-// When user searches for books by the same author, we'll find it here
-let searchAuthor = "John Smith";
-let sameAuthor = books.filter(function (book) {
-  return book.author === searchAuthor;
-});
-// console.log(sameAuthor);
-
-// When user searches for prices equal to or under 20.0, we'll find it here
-let maxPrice = 20.0;
-let filteredPrice = books.filter(function (book) {
-  return book.price <= maxPrice;
-});
-// console.log(filteredPrice);
 
 //--------------------- Fetching the HTML and adding HTML elements with Javascript:
 
@@ -135,3 +89,58 @@ for (let i = 0; i < books.length; i++) {
     book.price +
     "</p>";
 }
+
+// Additional:
+
+// Console logging the stock number of each book
+for (const book of books) {
+  console.log(
+    "Number in stock: " + book.stockNum + ", book title: " + book.title
+  );
+}
+
+// Simulating an add to cart scenario, updating the number of books in stock
+function addToCart() {
+  // Calling the function for each book
+  for (const book of books) {
+    book.inCart();
+    // console logging the result when button is clicked(the addToCart function is called)
+    console.log(
+      "New number in stock: " + book.stockNum + ", book title: " + book.title
+    );
+  }
+  alert("Cart updated :)");
+}
+
+//--------------------- Looping, finding and filtering:
+
+// Looping through the array of books and creating a local variable
+for (let i = 0; i < books.length; i++) {
+  let book = books[i];
+  // console.log(book.title);
+}
+
+// Searches for a specific book-title and finds it here
+let searchTitle = "Aboriginals";
+let myBook = books.find(function (book) {
+  return book.title === searchTitle;
+});
+// console.log(myBook);
+
+// Searches for books by the same author and finds it here
+let searchAuthor = "John Smith";
+let sameAuthor = books.filter(function (book) {
+  if (Array.isArray(book.author)) {
+    return Array.isArray(book.author);
+  } else {
+    return book.author === searchAuthor;
+  }
+});
+// console.log(sameAuthor);
+
+// Searches for books with equal to or under set price value and finds it here
+let maxPrice = 20.0;
+let filteredPrice = books.filter(function (book) {
+  return book.price <= maxPrice;
+});
+// console.log(filteredPrice);

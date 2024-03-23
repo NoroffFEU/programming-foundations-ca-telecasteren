@@ -1,14 +1,14 @@
 /* CSS styles for the objects list ++ */
 
 :root {
-  --light-green: #84b169;
+  --terra-cotta: #935c52;
+  --blue-green: #d4e3e9;
   --dark-blue: #1e5363;
-  --light-blue: #7bc8e0;
   --white: #ffffff;
 }
 
 body {
-  background-color: var(--light-green);
+  background-color: var(--blue-green);
   font-family: sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -28,7 +28,7 @@ body {
 }
 
 .page-heading {
-  margin-top: 6%;
+  margin-top: 4%;
   font-size: larger;
   color: var(--white);
   text-align: center;
@@ -41,23 +41,34 @@ body {
 #search-field {
   width: 200px;
   height: 20px;
-  margin-top: 15%;
+  margin-top: 100px;
   border-radius: 8px;
   text-align: center;
   justify-self: center;
-  border: 1px solid var(--white);
+  border: 1px solid var(--dark-blue);
   background-color: var(--white);
 }
 
-#submit-btn {
-  width: 80px;
-  height: 30px;
+#submit-btn,
+#cart-btn {
   margin-top: 2%;
   border-radius: 8px;
   justify-self: center;
   color: var(--white);
   border: 1px solid var(--dark-blue);
   background-color: var(--dark-blue);
+  cursor: pointer;
+}
+
+#submit-btn {
+  width: 80px;
+  height: 30px;
+}
+
+#cart-btn {
+  font-size: larger;
+  width: 125px;
+  height: 50px;
 }
 
 .list-container {
@@ -85,7 +96,7 @@ h5 {
 h4 {
   list-style: circle;
   margin-top: 15%;
-  color: var(--white);
+  color: var(--dark-blue);
   font-size: 22px;
 }
 
@@ -96,7 +107,7 @@ h5 {
 }
 
 p {
-  color: var(--dark-blue);
+  color: var(--terra-cotta);
   text-decoration: underline;
   font-size: 18px;
 }

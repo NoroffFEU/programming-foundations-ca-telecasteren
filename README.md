@@ -10,3 +10,4 @@ This object has the following properties:
 - price: (Number), cost of product
 - inStock: (Boolean), a check to see if the product is in stock or not
 - inCart: (function), a check to see if inStock is true/false so we can or cannot add item to the cart
+- Additional code and practice. Located in xtras.js and under the object list itself inside books.js

@@ -95,7 +95,13 @@ for (let i = 0; i < books.length; i++) {
 // Console logging the stock number of each book
 for (const book of books) {
   console.log(
-    "Number in stock: " + book.stockNum + ", book title: " + book.title
+    "In stock: " +
+      book.inStock +
+      ", " +
+      "how many: " +
+      book.stockNum +
+      ", title: " +
+      book.title
   );
 }
 
@@ -106,7 +112,7 @@ function addToCart() {
     book.inCart();
     // console logging the result when button is clicked(the addToCart function is called)
     console.log(
-      "New number in stock: " + book.stockNum + ", book title: " + book.title
+      "New number in stock: " + book.stockNum + ", title: " + book.title
     );
   }
   alert("Cart updated :)");
@@ -138,9 +144,52 @@ let sameAuthor = books.filter(function (book) {
 });
 // console.log(sameAuthor);
 
-// Searches for books with equal to or under set price value and finds it here
+// Searches for books with equal to or under max price value and finds it here
 let maxPrice = 20.0;
 let filteredPrice = books.filter(function (book) {
   return book.price <= maxPrice;
 });
 // console.log(filteredPrice);
+
+// Adding objects to the original object list
+let newBook = {
+  title: "Hungry eyes",
+  author: "Will Wickams",
+  genre: "fantasy",
+  price: 20.0,
+  inStock: true,
+  stockNum: 8,
+  inCart: function () {
+    if (this.stockNum > 0) {
+      this.stockNum -= 1;
+    } else {
+      this.stockNum === 0;
+      console.log("Not in stock:");
+    }
+  },
+};
+
+books.push(newBook);
+
+// Looping through the object list, starting at the end before the new addition
+// so we make sure that we only loop through the new addition and log the correct values
+for (let i = books.length - 1; i < books.length; i++) {
+  let book = books[i];
+  console.log("New book on the shelves: " + book.title);
+  console.log("Genre: " + book.genre);
+  console.log("Price: " + "$" + book.price);
+  console.log("Is in stock: " + book.inStock + ", how many: " + book.stockNum);
+
+  // Adding the new book to the object list in the HTML document
+  objectList.innerHTML +=
+    "<h4>" +
+    "<li>" +
+    book.title +
+    "</li></h4><h5>" +
+    "Genre: " +
+    book.genre +
+    "</h5><p>" +
+    "Price: $" +
+    book.price +
+    "</p>";
+}

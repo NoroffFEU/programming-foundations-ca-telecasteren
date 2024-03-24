@@ -5,7 +5,7 @@
 This object has the following properties:
 
 - title: (String), name of the book
-- author: (String), name of the author
+- author: (String), (array), name of the author
 - genre: (String), type of genre
 - price: (Number), cost of product
 - inStock: (Boolean), a check to see if the product is in stock or not
